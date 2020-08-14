@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a5dc6321-3179-4de3-943a-a3f88fe61737" name="Rpasoberry Pi" url="http://192.168.1.130/studiodesimio">
+        <fileTransfer rootFolder="/var/www/html/studiodesimio/wp-content" host="192.168.1.130" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
