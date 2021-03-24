@@ -20,3 +20,26 @@ add_action( 'wp_enqueue_scripts', 'tthq_add_custom_fa_css' );
 function tthq_add_custom_fa_css() {
     wp_enqueue_style( 'custom-fa', 'https://use.fontawesome.com/releases/v5.0.6/css/all.css' );
 }
+
+
+function data_copyright() {
+    global $wpdb;
+    $copyright_dates = $wpdb->get_results("
+    SELECT
+    YEAR(min(post_date_gmt)) AS firstdate,
+    YEAR(max(post_date_gmt)) AS lastdate
+    FROM
+    $wpdb->posts
+    WHERE
+    post_status = 'publish'
+    ");
+    $output = '';
+    if($copyright_dates) {
+        $copyright = "&copy; " . $copyright_dates[0]->firstdate;
+        if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
+            $copyright .= '-' . $copyright_dates[0]->lastdate;
+        }
+        $output = $copyright;
+    }
+    return $output;
+}
